@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", ui-serif, Georgia, serif;
+  
+  --color-gold-50: #fbf8eb;
+  --color-gold-100: #f5ecc9;
+  --color-gold-200: #ebd994;
+  --color-gold-300: #e0c25e;
+  --color-gold-400: #d4af37; /* Primary Gold */
+  --color-gold-500: #b5922b;
+  --color-gold-600: #917120;
+  --color-gold-700: #74581b;
+  --color-gold-800: #60481b;
+  --color-gold-900: #533e1b;
+  --color-gold-950: #2e210b;
+
+  --color-rich-black: #050505;
+  --color-charcoal: #0a0a0a;
+}
+
+body {
+  background-color: var(--color-rich-black);
+  color: #ffffff;
+  font-family: var(--font-sans);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+}
+
+.text-gold {
+  color: var(--color-gold-400);
+}
+
+.bg-gold {
+  background-color: var(--color-gold-400);
+}
+
+.border-gold {
+  border-color: var(--color-gold-400);
+}
+
+.gold-gradient-text {
+  background: linear-gradient(to right, #ebd994, #d4af37, #ebd994);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
