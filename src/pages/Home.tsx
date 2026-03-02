@@ -9,7 +9,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center justify-center px-6 py-20">
         {/* Background Elements */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-gold-900/20 via-rich-black to-rich-black z-0" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))] from-gold-900/20 via-rich-black to-rich-black z-0" />
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gold-500/10 rounded-full blur-[100px]" />
         <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-white/5 rounded-full blur-[80px]" />
 
@@ -152,7 +152,7 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="group relative p-10 bg-gradient-to-b from-white/5 to-transparent border border-white/10 hover:border-gold-400/50 transition-all duration-500"
+              className="group relative p-10 bg-linear-to-b from-white/5 to-transparent border border-white/10 hover:border-gold-400/50 transition-all duration-500"
             >
               <div className="absolute top-0 left-0 w-full h-1 bg-gold-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
               <Globe className="w-12 h-12 text-white/80 mb-8 group-hover:text-gold-400 transition-colors" />
@@ -174,7 +174,7 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="group relative p-10 bg-gradient-to-b from-white/5 to-transparent border border-white/10 hover:border-gold-400/50 transition-all duration-500"
+              className="group relative p-10 bg-linear-to-b from-white/5 to-transparent border border-white/10 hover:border-gold-400/50 transition-all duration-500"
             >
               <div className="absolute top-0 left-0 w-full h-1 bg-gold-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
               <ShieldCheck className="w-12 h-12 text-white/80 mb-8 group-hover:text-gold-400 transition-colors" />
@@ -196,7 +196,7 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="group relative p-10 bg-gradient-to-b from-white/5 to-transparent border border-white/10 hover:border-gold-400/50 transition-all duration-500"
+              className="group relative p-10 bg-linear-to-b from-white/5 to-transparent border border-white/10 hover:border-gold-400/50 transition-all duration-500"
             >
               <div className="absolute top-0 left-0 w-full h-1 bg-gold-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
               <Cpu className="w-12 h-12 text-white/80 mb-8 group-hover:text-gold-400 transition-colors" />
