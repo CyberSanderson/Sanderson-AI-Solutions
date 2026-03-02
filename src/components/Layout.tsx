@@ -29,10 +29,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-rich-black/80 backdrop-blur-md border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 bg-gold-400 rounded-sm flex items-center justify-center text-rich-black font-serif font-bold text-xl group-hover:bg-white transition-colors duration-300">
-              S
-            </div>
-            <span className="font-serif text-xl tracking-wide font-semibold text-white group-hover:text-gold-400 transition-colors duration-300">
+            <img 
+              src="/Sanderson AI Solutions Logo.png" 
+              alt="Sanderson AI Solutions" 
+              className="h-10 w-auto md:h-12 object-contain group-hover:opacity-80 transition-opacity duration-300"
+            />
+            <span className="font-serif text-lg md:text-xl tracking-wide font-semibold text-white group-hover:text-gold-400 transition-colors duration-300 hidden sm:inline">
               SANDERSON <span className="text-gold-400 group-hover:text-white transition-colors duration-300">AI</span>
             </span>
           </Link>
@@ -108,9 +110,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
             <div className="col-span-1 md:col-span-2">
               <Link to="/" className="flex items-center gap-2 mb-6">
-                <div className="w-8 h-8 bg-gold-400 rounded-sm flex items-center justify-center text-rich-black font-serif font-bold text-lg">
-                  S
-                </div>
+                <img 
+                  src="/Sanderson AI Solutions Logo.png" 
+                  alt="Sanderson AI Solutions" 
+                  className="h-8 w-auto object-contain"
+                />
                 <span className="font-serif text-lg tracking-wide font-semibold text-white">
                   SANDERSON <span className="text-gold-400">AI</span>
                 </span>
@@ -186,8 +190,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               © {new Date().getFullYear()} Sanderson AI Solutions LLC. All rights reserved.
             </p>
             <div className="flex gap-6 text-sm text-white/40">
-              <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+              <Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+              <Link to="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
             </div>
           </div>
         </div>
