@@ -223,7 +223,7 @@ export default function Home() {
             Explore our ecosystem or contact us to discuss how we can implement AI automation examples tailored to your needs.
           </p>
           <a
-            href="mailto:contact@sandersonai.com"
+            href="mailto:support@sandersonaisolutions.com"
             className="inline-block px-10 py-5 bg-gold-400 text-rich-black font-bold uppercase tracking-widest hover:bg-white transition-colors duration-300 shadow-[0_0_30px_rgba(212,175,55,0.3)]"
           >
             Get in Touch

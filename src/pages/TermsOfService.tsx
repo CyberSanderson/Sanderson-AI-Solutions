@@ -98,7 +98,7 @@ export default function TermsOfService() {
             </p>
             <div className="text-white/80">
               <p className="mb-2"><strong>Sanderson AI Solutions LLC</strong></p>
-              <p className="mb-2">Email: <a href="mailto:contact@sandersonai.com" className="text-gold-400 hover:underline">contact@sandersonai.com</a></p>
+              <p className="mb-2">Email: <a href="mailto:support@sandersonaisolutions.com" className="text-gold-400 hover:underline">support@sandersonaisolutions.com</a></p>
             </div>
           </section>
         </div>
