@@ -119,18 +119,21 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   SANDERSON <span className="text-gold-400">AI</span>
                 </span>
               </Link>
-              <p className="text-white/60 max-w-md leading-relaxed mb-8">
+              <p className="text-white/60 max-w-md leading-relaxed mb-4">
                 Empowering the economic backbone of our communities through intelligent automation. 
                 We provide the best AI solutions for small business growth, securing the future of local enterprise.
               </p>
+              <div className="text-white/60 text-sm mb-6 space-y-1">
+                <p><strong>Location:</strong> Bronx, NY</p>
+                <p><strong>Service Area:</strong> Bronx, Manhattan, Yonkers, Westchester County</p>
+                <p><strong>Phone:</strong> <a href="tel:347-978-8672" className="text-gold-400 hover:underline">347-978-8672</a></p>
+                <p><strong>Email:</strong> <a href="mailto:support@sandersonaisolutions.com" className="text-gold-400 hover:underline">support@sandersonaisolutions.com</a></p>
+              </div>
               <div className="flex gap-4">
-                <a href="#" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:border-gold-400 hover:text-gold-400 transition-all">
+                <a href="https://www.linkedin.com/company/sanderson-ai-solutions-llc" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:border-gold-400 hover:text-gold-400 transition-all">
                   <Linkedin size={18} />
                 </a>
-                <a href="#" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:border-gold-400 hover:text-gold-400 transition-all">
-                  <Twitter size={18} />
-                </a>
-                <a href="mailto:contact@sandersonai.com" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:border-gold-400 hover:text-gold-400 transition-all">
+                <a href="mailto:support@sandersonaisolutions.com" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:border-gold-400 hover:text-gold-400 transition-all">
                   <Mail size={18} />
                 </a>
               </div>
