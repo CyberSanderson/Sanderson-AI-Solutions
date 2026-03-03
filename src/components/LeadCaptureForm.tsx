@@ -70,7 +70,7 @@ export default function LeadCaptureForm({
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.95 }}
         transition={{ duration: 0.3 }}
-        className="relative w-full max-w-lg bg-rich-black border border-white/10 rounded-lg p-8 shadow-2xl"
+        className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto bg-rich-black border border-white/10 rounded-lg p-8 shadow-2xl"
       >
         {/* Close Button */}
         <button
@@ -102,7 +102,7 @@ export default function LeadCaptureForm({
             <p className="text-white/70">We've received your information and will be in touch shortly.</p>
           </motion.div>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-5">
+          <form onSubmit={handleSubmit} className="space-y-4">
             {/* Name */}
             <div>
               <label htmlFor="name" className="block text-sm font-semibold text-white/90 mb-2">
@@ -216,7 +216,7 @@ export default function LeadCaptureForm({
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full py-3 bg-gold-400 text-rich-black font-bold uppercase tracking-widest rounded hover:bg-white transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed mt-6"
+              className="w-full py-3 bg-gold-400 text-rich-black font-bold uppercase tracking-widest rounded hover:bg-white transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed mt-2"
             >
               {isSubmitting ? 'Sending...' : 'Submit'}
             </button>
