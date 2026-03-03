@@ -1,11 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { ArrowRight, Bot, BarChart3, Users, Zap, Globe, ShieldCheck, Cpu } from 'lucide-react';
+import { ArrowRight, Bot, BarChart3, Users, Zap, Globe, ShieldCheck, Cpu, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import LeadCaptureForm from '../components/LeadCaptureForm';
 
 export default function Home() {
+  const [isFormOpen, setIsFormOpen] = useState(false);
+  const [formConfig, setFormConfig] = useState({
+    title: 'Get Started',
+    description: 'Tell us about your business and we\'ll be in touch soon.'
+  });
+
+  const openForm = (config?: { title: string; description: string }) => {
+    if (config) {
+      setFormConfig(config);
+    }
+    setIsFormOpen(true);
+  };
+
   return (
     <div className="overflow-hidden">
+      <LeadCaptureForm
+        isOpen={isFormOpen}
+        onClose={() => setIsFormOpen(false)}
+        title={formConfig.title}
+        description={formConfig.description}
+      />
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center justify-center px-6 py-20">
         {/* Background Elements */}
@@ -130,6 +150,84 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Professional Services Section */}
+      <section className="py-32 bg-charcoal relative">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center max-w-3xl mx-auto mb-20">
+            <span className="text-gold-400 text-sm uppercase tracking-widest font-semibold">Specialized Services</span>
+            <h2 className="text-4xl md:text-6xl font-serif font-bold mt-4 mb-6">Professional Services</h2>
+            <p className="text-white/60 text-lg">
+              Foundation-building services that set up your business for success with our ecosystem solutions.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Google Business Profile Card */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="p-10 bg-linear-to-b from-white/5 to-transparent border border-white/10 hover:border-gold-400/50 transition-all duration-500"
+            >
+              <div className="mb-8">
+                <img
+                  src="/google-business.webp"
+                  alt="Google Business Profile"
+                  className="h-16 w-16 object-contain"
+                />
+              </div>
+              <h3 className="text-3xl font-serif font-bold mb-3 text-white">Google Profile Setup & Local Search Optimization</h3>
+              <p className="text-gold-400 text-lg font-semibold mb-4">One-Time Setup Fee ($495)</p>
+              <p className="text-white/70 text-lg mb-8 leading-relaxed">
+                AI automation is useless if local customers can't find you. We build, verify, and heavily optimize your Google Business Profile so you rank in the top 3 'Local Pack' map results when clients search for your services.
+              </p>
+              
+              <div className="mb-10 space-y-4">
+                {[
+                  "Complete Profile Verification & NAP Optimization",
+                  "High-Conversion Service Menus & Descriptions",
+                  "Local Map Ranking Infrastructure",
+                  "Perfect foundation for Local Lead Bot Pro"
+                ].map((point, i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-gold-400 mt-0.5 shrink-0" />
+                    <span className="text-white/90">{point}</span>
+                  </div>
+                ))}
+              </div>
+
+              <button
+                onClick={() => openForm({
+                  title: 'Google Business Profile Setup',
+                  description: 'Let\'s verify and optimize your Google Business Profile for maximum visibility.'
+                })}
+                className="inline-block px-8 py-4 bg-gold-400 text-rich-black font-semibold uppercase tracking-widest hover:bg-white transition-colors duration-300"
+              >
+                Check My Business Visibility
+              </button>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="hidden lg:flex items-center justify-center"
+            >
+              <div className="relative">
+                <div className="absolute inset-0 bg-gold-400/20 rounded-full blur-[60px]" />
+                <img
+                  src="/google-business.webp"
+                  alt="Google Business Profile"
+                  className="relative h-80 w-auto object-contain"
+                />
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* The Ecosystem Section */}
       <section id="ecosystem" className="py-32 relative">
         <div className="max-w-7xl mx-auto px-6">
@@ -213,7 +311,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gold-900/10 border-y border-white/5">
+      <section id="contact" className="py-24 bg-gold-900/10 border-y border-white/5">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-3xl md:text-5xl font-serif font-bold mb-8">
             Ready to Modernize Your Operations?
@@ -222,12 +320,12 @@ export default function Home() {
             As a leading AI automation agency for local businesses, we are dedicated to your success. 
             Explore our ecosystem or contact us to discuss how we can implement AI automation examples tailored to your needs.
           </p>
-          <a
-            href="mailto:support@sandersonaisolutions.com"
+          <button
+            onClick={() => openForm()}
             className="inline-block px-10 py-5 bg-gold-400 text-rich-black font-bold uppercase tracking-widest hover:bg-white transition-colors duration-300 shadow-[0_0_30px_rgba(212,175,55,0.3)]"
           >
             Get in Touch
-          </a>
+          </button>
         </div>
       </section>
     </div>
