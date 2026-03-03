@@ -163,7 +163,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Serv Engines - The Foundation */}
+            {/* Serv Engines - The Foundation  First*/}
             <motion.a
               href="https://www.servengines.com/"
               target="_blank"
