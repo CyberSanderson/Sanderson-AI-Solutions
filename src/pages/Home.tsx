@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { ArrowRight, Bot, BarChart3, Users, Zap, Globe, ShieldCheck, Cpu, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, Bot, BarChart3, Users, Zap, Globe, ShieldCheck, Cpu } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import LeadCaptureForm from '../components/LeadCaptureForm';
 
@@ -150,84 +150,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Professional Services Section */}
-      <section className="py-32 bg-charcoal relative">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center max-w-3xl mx-auto mb-20">
-            <span className="text-gold-400 text-sm uppercase tracking-widest font-semibold">Specialized Services</span>
-            <h2 className="text-4xl md:text-6xl font-serif font-bold mt-4 mb-6">Professional Services</h2>
-            <p className="text-white/60 text-lg">
-              Foundation-building services that set up your business for success with our ecosystem solutions.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Google Business Profile Card */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="p-10 bg-linear-to-b from-white/5 to-transparent border border-white/10 hover:border-gold-400/50 transition-all duration-500"
-            >
-              <div className="mb-8">
-                <img
-                  src="/google-business.webp"
-                  alt="Google Business Profile"
-                  className="h-16 w-16 object-contain"
-                />
-              </div>
-              <h3 className="text-3xl font-serif font-bold mb-3 text-white">Google Profile Setup & Local Search Optimization</h3>
-              <p className="text-gold-400 text-lg font-semibold mb-4">One-Time Setup Fee ($495)</p>
-              <p className="text-white/70 text-lg mb-8 leading-relaxed">
-                AI automation is useless if local customers can't find you. We build, verify, and heavily optimize your Google Business Profile so you rank in the top 3 'Local Pack' map results when clients search for your services.
-              </p>
-              
-              <div className="mb-10 space-y-4">
-                {[
-                  "Complete Profile Verification & NAP Optimization",
-                  "High-Conversion Service Menus & Descriptions",
-                  "Local Map Ranking Infrastructure",
-                  "Perfect foundation for Local Lead Bot Pro"
-                ].map((point, i) => (
-                  <div key={i} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-gold-400 mt-0.5 shrink-0" />
-                    <span className="text-white/90">{point}</span>
-                  </div>
-                ))}
-              </div>
-
-              <button
-                onClick={() => openForm({
-                  title: 'Google Business Profile Setup',
-                  description: 'Let\'s verify and optimize your Google Business Profile for maximum visibility.'
-                })}
-                className="inline-block px-8 py-4 bg-gold-400 text-rich-black font-semibold uppercase tracking-widest hover:bg-white transition-colors duration-300"
-              >
-                Check My Business Visibility
-              </button>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="hidden lg:flex items-center justify-center"
-            >
-              <div className="relative">
-                <div className="absolute inset-0 bg-gold-400/20 rounded-full blur-[60px]" />
-                <img
-                  src="/google-business.webp"
-                  alt="Google Business Profile"
-                  className="relative h-80 w-auto object-contain"
-                />
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
       {/* The Ecosystem Section */}
       <section id="ecosystem" className="py-32 relative">
         <div className="max-w-7xl mx-auto px-6">
@@ -241,9 +163,9 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Sentient Prospect */}
+            {/* Serv Engines - The Foundation */}
             <motion.a
-              href="https://www.sentientprospect.com/"
+              href="https://www.servengines.com/"
               target="_blank"
               rel="noreferrer"
               initial={{ opacity: 0, y: 30 }}
@@ -253,17 +175,21 @@ export default function Home() {
               className="group relative p-10 bg-linear-to-b from-white/5 to-transparent border border-white/10 hover:border-gold-400/50 transition-all duration-500"
             >
               <div className="absolute top-0 left-0 w-full h-1 bg-gold-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
-              <Globe className="w-12 h-12 text-white/80 mb-8 group-hover:text-gold-400 transition-colors" />
-              <h3 className="text-2xl font-serif font-bold mb-4 group-hover:text-gold-400 transition-colors">Sentient Prospect</h3>
+              <Cpu className="w-12 h-12 text-white/80 mb-8 group-hover:text-gold-400 transition-colors" />
+              <h3 className="text-2xl font-serif font-bold mb-2 group-hover:text-gold-400 transition-colors">Serv Engines</h3>
+              <p className="text-gold-400 text-xs uppercase tracking-widest font-semibold mb-4">The Foundation</p>
+              <p className="text-white/70 text-sm mb-4 italic leading-relaxed">
+                "Before you can do anything else, you need to actually exist on the internet."
+              </p>
               <p className="text-white/60 mb-8 leading-relaxed">
-                Advanced B2B Lead Generation & Outreach. We utilize AI small business ideas to identify and engage your perfect clients automatically.
+                Google Business Profile setup, Next.js website, and full operational automation.
               </p>
               <div className="flex items-center text-sm font-semibold tracking-widest uppercase text-white/80 group-hover:text-gold-400 transition-colors">
                 Visit Platform <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </div>
             </motion.a>
 
-            {/* Local Lead Bot Pro */}
+            {/* Local Lead Bot Pro - The Capture */}
             <motion.a
               href="https://www.localleadbot.pro/"
               target="_blank"
@@ -276,18 +202,22 @@ export default function Home() {
             >
               <div className="absolute top-0 left-0 w-full h-1 bg-gold-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
               <ShieldCheck className="w-12 h-12 text-white/80 mb-8 group-hover:text-gold-400 transition-colors" />
-              <h3 className="text-2xl font-serif font-bold mb-4 group-hover:text-gold-400 transition-colors">Local Lead Bot Pro</h3>
+              <h3 className="text-2xl font-serif font-bold mb-2 group-hover:text-gold-400 transition-colors">Local Lead Bot Pro</h3>
+              <p className="text-gold-400 text-xs uppercase tracking-widest font-semibold mb-4">The Capture</p>
+              <p className="text-white/70 text-sm mb-4 italic leading-relaxed">
+                "Now that people can find you, stop letting them slip away when you're busy."
+              </p>
               <p className="text-white/60 mb-8 leading-relaxed">
-                Local Market Capture & Missed Call Text Back. The premier AI answering services for small business, ensuring you never miss a revenue opportunity.
+                Missed-call text-back and AI chatbot widget to automate inbound lead capture.
               </p>
               <div className="flex items-center text-sm font-semibold tracking-widest uppercase text-white/80 group-hover:text-gold-400 transition-colors">
                 Visit Platform <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </div>
             </motion.a>
 
-            {/* Serv Engines */}
+            {/* Sentient Prospect - The Scaling */}
             <motion.a
-              href="https://www.servengines.com/"
+              href="https://www.sentientprospect.com/"
               target="_blank"
               rel="noreferrer"
               initial={{ opacity: 0, y: 30 }}
@@ -297,10 +227,14 @@ export default function Home() {
               className="group relative p-10 bg-linear-to-b from-white/5 to-transparent border border-white/10 hover:border-gold-400/50 transition-all duration-500"
             >
               <div className="absolute top-0 left-0 w-full h-1 bg-gold-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
-              <Cpu className="w-12 h-12 text-white/80 mb-8 group-hover:text-gold-400 transition-colors" />
-              <h3 className="text-2xl font-serif font-bold mb-4 group-hover:text-gold-400 transition-colors">Serv Engines</h3>
+              <Globe className="w-12 h-12 text-white/80 mb-8 group-hover:text-gold-400 transition-colors" />
+              <h3 className="text-2xl font-serif font-bold mb-2 group-hover:text-gold-400 transition-colors">Sentient Prospect</h3>
+              <p className="text-gold-400 text-xs uppercase tracking-widest font-semibold mb-4">The Scaling</p>
+              <p className="text-white/70 text-sm mb-4 italic leading-relaxed">
+                "Now that your foundation is built, let's hunt for massive B2B contracts."
+              </p>
               <p className="text-white/60 mb-8 leading-relaxed">
-                Operational & Workflow Automation. We are the AI automation agency for small businesses looking to streamline complex processes.
+                Advanced B2B lead generation and outbound AI machinery to scale your empire.
               </p>
               <div className="flex items-center text-sm font-semibold tracking-widest uppercase text-white/80 group-hover:text-gold-400 transition-colors">
                 Visit Platform <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
