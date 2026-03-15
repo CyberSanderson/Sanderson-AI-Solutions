@@ -36,12 +36,23 @@ export default function LeadCaptureForm({
     setIsSubmitting(true);
 
     try {
+      const payload = new FormData();
+      payload.append('name', formData.name);
+      payload.append('email', formData.email);
+      payload.append('phone', formData.phone);
+      payload.append('company', formData.company);
+      payload.append('website', formData.website);
+      payload.append('message', formData.message);
+      payload.append(
+        'summary',
+        `Name: ${formData.name}\nPhone: ${formData.phone}\nEmail: ${formData.email || 'Not provided'}`
+      );
+      payload.append('_replyto', formData.email);
+      payload.append('_subject', 'New Lead Capture Submission');
+
       const response = await fetch('https://formspree.io/f/xpqjgvnp', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
+        body: payload,
       });
 
       if (response.ok) {
@@ -123,7 +134,7 @@ export default function LeadCaptureForm({
             {/* Email */}
             <div>
               <label htmlFor="email" className="block text-sm font-semibold text-white/90 mb-2">
-                Email Address *
+                Email Address
               </label>
               <input
                 type="email"
@@ -131,7 +142,6 @@ export default function LeadCaptureForm({
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                required
                 className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded text-white placeholder-white/40 focus:outline-none focus:border-gold-400/50 focus:bg-white/10 transition-all"
                 placeholder="john@example.com"
               />
@@ -140,7 +150,7 @@ export default function LeadCaptureForm({
             {/* Phone */}
             <div>
               <label htmlFor="phone" className="block text-sm font-semibold text-white/90 mb-2">
-                Phone Number
+                Phone Number *
               </label>
               <input
                 type="tel"
@@ -148,6 +158,7 @@ export default function LeadCaptureForm({
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
+                required
                 className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded text-white placeholder-white/40 focus:outline-none focus:border-gold-400/50 focus:bg-white/10 transition-all"
                 placeholder="(555) 123-4567"
               />

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { Menu, X, ChevronRight, Linkedin, Twitter, Mail } from 'lucide-react';
+import ChatbotAssistant from './ChatbotAssistant';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
@@ -199,6 +200,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </div>
         </div>
       </footer>
+
+      <ChatbotAssistant />
     </div>
   );
 }
