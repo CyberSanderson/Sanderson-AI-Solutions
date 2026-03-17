@@ -25,6 +25,7 @@ export default function LeadCaptureForm({
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -36,36 +37,43 @@ export default function LeadCaptureForm({
     setIsSubmitting(true);
 
     try {
-      const payload = new FormData();
-      payload.append('name', formData.name);
-      payload.append('email', formData.email);
-      payload.append('phone', formData.phone);
-      payload.append('company', formData.company);
-      payload.append('website', formData.website);
-      payload.append('message', formData.message);
-      payload.append(
-        'summary',
-        `Name: ${formData.name}\nPhone: ${formData.phone}\nEmail: ${formData.email || 'Not provided'}`
-      );
-      payload.append('_replyto', formData.email);
-      payload.append('_subject', 'New Lead Capture Submission');
+      const payload: Record<string, string> = {
+        name: formData.name,
+        phone: formData.phone,
+        _subject: 'New Lead Capture Submission - Sanderson AI Solutions',
+      };
+      if (formData.email) {
+        payload.email = formData.email;
+        payload._replyto = formData.email;
+      }
+      if (formData.company) payload.company = formData.company;
+      if (formData.website) payload.website = formData.website;
+      if (formData.message) payload.message = formData.message;
 
       const response = await fetch('https://formspree.io/f/xpqjgvnp', {
         method: 'POST',
-        body: payload,
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify(payload),
       });
 
       if (response.ok) {
         setSubmitStatus('success');
+        setErrorMessage('');
         setFormData({ name: '', email: '', phone: '', company: '', website: '', message: '' });
         setTimeout(() => {
           onClose();
           setSubmitStatus('idle');
         }, 2000);
       } else {
+        const data = await response.json().catch(() => ({}));
+        setErrorMessage(data?.error || `Formspree error ${response.status}`);
         setSubmitStatus('error');
       }
-    } catch {
+    } catch (err) {
+      setErrorMessage(err instanceof Error ? err.message : 'Network error — check your connection.');
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -114,6 +122,9 @@ export default function LeadCaptureForm({
           </motion.div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4">
+            {/* Honeypot — hidden from humans, bots fill it, Formspree discards those submissions */}
+            <input type="text" name="_gotcha" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
+
             {/* Name */}
             <div>
               <label htmlFor="name" className="block text-sm font-semibold text-white/90 mb-2">
@@ -219,7 +230,7 @@ export default function LeadCaptureForm({
                 animate={{ opacity: 1, y: 0 }}
                 className="p-4 bg-red-500/10 border border-red-500/30 rounded text-red-400 text-sm"
               >
-                Something went wrong. Please try again.
+                {errorMessage || 'Something went wrong. Please try again.'}
               </motion.div>
             )}
 

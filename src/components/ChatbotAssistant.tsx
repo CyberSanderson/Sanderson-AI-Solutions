@@ -103,12 +103,33 @@ export default function ChatbotAssistant() {
     setStep('collectBusiness');
   };
 
-  const handleBusiness = (response: string) => {
-    setLeadData((prev) => ({ ...prev, business: response }));
+  const handleBusiness = async (response: string) => {
+    const updatedLead = { ...leadData, business: response };
+    setLeadData(updatedLead);
+    setStep('done');
+
+    try {
+      await fetch('https://formspree.io/f/xpqjgvnp', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          _subject: 'New Chatbot Lead - Sanderson AI Solutions',
+          name: updatedLead.name,
+          phone: updatedLead.phone,
+          business: updatedLead.business,
+        }),
+      });
+    } catch {
+      // submission failure is silent to the user; lead data still shows in console
+      console.error('Chatbot lead submission failed');
+    }
+
     pushAssistant(
       "Perfect. I've sent your details directly to Sanderson. He will review your business online and call you shortly to map out the next steps."
     );
-    setStep('done');
   };
 
   const handleUserMessage = (text: string) => {
